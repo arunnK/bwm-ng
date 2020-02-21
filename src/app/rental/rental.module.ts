@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgPipesModule } from 'ngx-pipes';
+import { Routes, RouterModule } from '@angular/router';
+
 import { RentalListItemComponent } from './rental-list-item/rental-list-item.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalComponent } from './rental.component';
-import { RentalService } from './shared/rental.service';
-import { Routes, RouterModule } from '@angular/router';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
+
+import { RentalService } from './shared/rental.service';
 
 const routes: Routes = [
     {
@@ -19,7 +23,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forRoot(routes)],
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        NgPipesModule,
+    ],
     declarations: [
         RentalListComponent,
         RentalListItemComponent,
